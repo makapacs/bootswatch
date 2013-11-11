@@ -1,4 +1,4 @@
-<header id="navbar" role="banner" class="navbar navbar-inverse navbar-fixed-top">
+<header id="navbar" role="navigation" class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
         <div class="navbar-header">
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -36,7 +36,7 @@
     </div>
 </header>
 
-<div class="container bs-docs-container">
+<div class="container">
 
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>

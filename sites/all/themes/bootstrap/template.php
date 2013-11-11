@@ -250,10 +250,15 @@ function bootstrap_preprocess_region(&$variables, $hook) {
  * @see block.tpl.php
  */
 function bootstrap_preprocess_block(&$variables, $hook) {
+//    var_dump($variables['block_html_id']);
   //$variables['classes_array'][] = 'row';
   // Use a bare template for the page's main content.
   if ($variables['block_html_id'] == 'block-system-main') {
     $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
+  }
+
+  if ($variables['block_html_id'] == 'block-search-form') {
+       $variables['theme_hook_suggestions'][] = 'block__bootstrap_search_form';
   }
   $variables['title_attributes_array']['class'][] = 'block-title';
 }
@@ -298,12 +303,81 @@ function _bootstrap_content_span($columns = 1) {
  * @ingroup themable
  */
 function bootstrap_bootstrap_search_form_wrapper(&$variables) {
-  $output = '<div class="input-group">';
-  $output .= $variables['element']['#children'];
+//  $output = '<div class="form-group">';
+    $output = '<div class="input-group">';
+    $output .= $variables['element']['#children'];
+//  $output .=   '<input type="text" class="form-control">';
+  $output .=   '<span class="input-group-btn">';
+//  $output .=   '<button class="btn btn-default" type="submit">'.t('Submit').'</button>';
+
   $output .= '<button type="submit" class="btn btn-default">';
   $output .= '<i class="glyphicon glyphicon-search"></i>';
   $output .= '<span class="element-invisible">' . t('Search') . '</span>';
   $output .= '</button>';
+
+  $output .=   '</span>';
+//  $output .= '<button type="submit" class="btn btn-default btn-sm">';
+//  $output .= '<i class="glyphicon glyphicon-search"></i>';
+//  $output .= '<span class="element-invisible">' . t('Search') . '</span>';
+//  $output .= '</button>';
   $output .= '</div>';
-  return $output;
+//  $output .=   '<button class="btn btn-default" type="submit">'.t('Submit').'</button>';
+
+    return $output;
  }
+
+
+/*********Bootstrap 3.0.x Added By Margots from Kapasoft.com/margotskapacs.com*************/
+function bootstrap_textfield($variables) {
+    $element = $variables['element'];
+    $element['#attributes']['type'] = 'text';
+    element_set_attributes($element, array('id', 'name', 'value', 'size', 'maxlength'));
+    _form_set_class($element, array('form-text', 'form-control'));
+
+    $extra = '';
+    if ($element['#autocomplete_path'] && drupal_valid_path($element['#autocomplete_path'])) {
+        drupal_add_library('system', 'drupal.autocomplete');
+        $element['#attributes']['class'][] = 'form-autocomplete';
+
+        $attributes = array();
+        $attributes['type'] = 'hidden';
+        $attributes['id'] = $element['#attributes']['id'] . '-autocomplete';
+        $attributes['value'] = url($element['#autocomplete_path'], array('absolute' => TRUE));
+        $attributes['disabled'] = 'disabled';
+        $attributes['class'][] = 'autocomplete';
+        $extra = '<input' . drupal_attributes($attributes) . ' />';
+    }
+
+    $output = '<input' . drupal_attributes($element['#attributes']) . ' />';
+
+    return $output . $extra;
+}
+
+
+function bootstrap_password($variables) {
+    $element = $variables['element'];
+    $element['#attributes']['type'] = 'password';
+    element_set_attributes($element, array('id', 'name', 'size', 'maxlength'));
+    _form_set_class($element, array('form-text', 'form-control'));
+
+    return '<input' . drupal_attributes($element['#attributes']) . ' />';
+}
+
+function bootstrap_container($variables) {
+    $element = $variables['element'];
+
+    // Special handling for form elements.
+    if (isset($element['#array_parents'])) {
+        // Assign an html ID.
+        if (!isset($element['#attributes']['id'])) {
+            $element['#attributes']['id'] = $element['#id'];
+        }
+        // Add the 'form-wrapper' class.
+        $element['#attributes']['class'][] = 'form-wrapper';
+    }
+
+    $element['#attributes']['class'] = array_diff($element['#attributes']['class'], array('container-inline'));
+
+    return '<div' . drupal_attributes($element['#attributes']) . '>' . $element['#children'] . '</div>';
+//    return $element['#children'];
+}

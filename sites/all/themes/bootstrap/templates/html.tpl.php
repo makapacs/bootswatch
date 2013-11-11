@@ -12,7 +12,7 @@
   <![endif]-->
   <?php print $scripts; ?>
 </head>
-<body class="<?php print $classes; ?>" <?php print $attributes;?>>
+<body style class="<?php print $classes; ?>" <?php print $attributes;?>>
     <a href="#content" class="sr-only"><?php print t('Skip to main content'); ?></a>
   <?php print $page_top; ?>
   <?php print $page; ?>

@@ -23,13 +23,17 @@ function bootstrap_form_alter(&$form, &$form_state, $form_id) {
  * Implements hook_form_FORM_ID_alter() for search_form().
  */
 function bootstrap_form_search_form_alter(&$form, &$form_state) {
-  $form['#attributes']['class'][] = 'form-search';
-  $form['#attributes']['class'][] = 'pull-left';
+//  $form['#attributes']['class'][] = 'form-search';
+//  $form['#attributes']['class'][] = 'pull-left';
+    $form['#attributes']['class'][] = 'navbar-form';
+//    $form['#attributes']['class'][] = 'form-inline';
+//    $form['#attributes']['class'][] = 'navbar-right';
 
   $form['basic']['keys']['#title'] = '';
   $form['basic']['keys']['#attributes']['class'][] = 'search-query';
+//    $form['basic']['keys']['#attributes']['class'][] = 'form-control';
 //  $form['basic']['keys']['#attributes']['class'][] = 'col-md-';
-  $form['basic']['keys']['#attributes']['placeholder'] = t('Search');
+  $form['basic']['keys']['#attributes']['placeholder'] = t('Search...');
 
   // Hide the default button from display and implement a theme wrapper to add
   // a submit button containing a search icon directly after the input element.
@@ -45,12 +49,21 @@ function bootstrap_form_search_form_alter(&$form, &$form_state) {
  * Implements hook_form_FORM_ID_alter() for search_block_form().
  */
 function bootstrap_form_search_block_form_alter(&$form, &$form_state) {
-  $form['#attributes']['class'][] = 'form-search';
+//  $form['#attributes']['class'][] = 'form-search';
+//    $form['#attributes']['class'][] = 'form-control';
 
-  $form['search_block_form']['#title'] = '';
+//    block_get_blocks_by_region('navigation');
+    $form['#attributes']['class'][] = 'navbar-form';
+    $form['#attributes']['class'][] = 'navbar-left';
+
+//    $form['#attributes']['class'][] = 'navbar-form';
+
+
+    $form['search_block_form']['#title'] = '';
   $form['search_block_form']['#attributes']['class'][] = 'search-query';
 //  $form['search_block_form']['#attributes']['class'][] = 'col-md-2';
-  $form['search_block_form']['#attributes']['placeholder'] = t('Search');
+    $form['basic']['keys']['#attributes']['class'][] = 'form-control';
+  $form['search_block_form']['#attributes']['placeholder'] = t('Search...');
 
   // Hide the default button from display and implement a theme wrapper to add
   // a submit button containing a search icon directly after the input element.
