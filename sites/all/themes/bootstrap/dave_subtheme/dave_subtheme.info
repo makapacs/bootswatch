@@ -1,0 +1,32 @@
+name = dave_subtheme
+description = description of Dave Subtheme.
+core = 7.x
+base theme = bootstrap
+
+regions[navigation]     = 'Navigation'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+
+settings[toggle_name] = 0
+settings[toggle_search] = 0
+settings[cdn_bootstrap] = 0
+settings[cdn_bootstrap_version] = 2.3.2
+
+;Stylesheets
+;stylesheets[all][] = css/bootstrap.min-2.3.2.css
+stylesheets[all][] = css/bootstrap-theme.min.css
+stylesheets[all][] = css/bootstrap.min.css
+stylesheets[all][] = css/style.css
+
+;JavaScript
+scripts[] = 'js/bootstrap.min.js'
+;exclude[css][] = 'misc/vertical-tabs.css'
+
+
+;Theme Settings
+;settings[cdn_bootstrap] = 1
