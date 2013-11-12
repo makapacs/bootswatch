@@ -30,7 +30,7 @@ if (theme_get_setting('bootstrap_rebuild_registry') && !defined('MAINTENANCE_MOD
 /**
  * Implements hook_theme().
  */
-function bootstrap_theme(&$existing, $type, $theme, $path) {
+function bootswatch_theme(&$existing, $type, $theme, $path) {
   // If we are auto-rebuilding the theme registry, warn about the feature.
   if (
     // Only display for site config admins.
@@ -87,7 +87,7 @@ function bootstrap_theme(&$existing, $type, $theme, $path) {
  *
  * Print breadcrumbs as a list, with separators.
  */
-function bootstrap_breadcrumb($variables) {
+function bootswatch_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
 
   if (!empty($breadcrumb)) {
@@ -111,7 +111,7 @@ function bootstrap_breadcrumb($variables) {
 /**
  * Override or insert variables in the html_tag theme function.
  */
-function bootstrap_process_html_tag(&$variables) {
+function bootswatch_process_html_tag(&$variables) {
   $tag = &$variables['element'];
 
   if ($tag['#tag'] == 'style' || $tag['#tag'] == 'script') {
@@ -130,7 +130,7 @@ function bootstrap_process_html_tag(&$variables) {
  *
  * @see page.tpl.php
  */
-function bootstrap_preprocess_page(&$variables) {
+function bootswatch_preprocess_page(&$variables) {
   // Add information about the number of sidebars.
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['columns'] = 3;
@@ -168,14 +168,14 @@ function bootstrap_preprocess_page(&$variables) {
 /**
  * Bootstrap theme wrapper function for the primary menu links
  */
-function bootstrap_menu_tree__primary(&$variables) {
+function bootswatch_menu_tree__primary(&$variables) {
   return '<ul class="nav navbar-nav">' . $variables['tree'] . '</ul>';
 }
 
 /**
  * Bootstrap theme wrapper function for the secondary menu links
  */
-function bootstrap_menu_tree__secondary(&$variables) {
+function bootswatch_menu_tree__secondary(&$variables) {
   return '<ul class="nav navbar-nav pull-right">' . $variables['tree'] . '</ul>';
 }
 
@@ -195,7 +195,7 @@ function bootstrap_menu_tree__secondary(&$variables) {
  *
  * @see theme_menu_local_action().
  */
-function bootstrap_menu_local_action($variables) {
+function bootswatch_menu_local_action($variables) {
   $link = $variables['element']['#link'];
 
   // Build the icon rendering element.
@@ -234,7 +234,7 @@ function bootstrap_menu_local_action($variables) {
  *
  * @see region.tpl.php
  */
-function bootstrap_preprocess_region(&$variables, $hook) {
+function bootswatch_preprocess_region(&$variables, $hook) {
   if ($variables['region'] == 'content') {
     $variables['theme_hook_suggestions'][] = 'region__no_wrapper';
   }
@@ -249,7 +249,7 @@ function bootstrap_preprocess_region(&$variables, $hook) {
  *
  * @see block.tpl.php
  */
-function bootstrap_preprocess_block(&$variables, $hook) {
+function bootswatch_preprocess_block(&$variables, $hook) {
 //    var_dump($variables['block_html_id']);
   //$variables['classes_array'][] = 'row';
   // Use a bare template for the page's main content.
@@ -271,7 +271,7 @@ function bootstrap_preprocess_block(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("block" in this case.)
  */
-function bootstrap_process_block(&$variables, $hook) {
+function bootswatch_process_block(&$variables, $hook) {
   // Drupal 7 should use a $title variable instead of $block->subject.
   $variables['title'] = $variables['block']->subject;
 }
@@ -302,7 +302,7 @@ function _bootstrap_content_span($columns = 1) {
  *
  * @ingroup themable
  */
-function bootstrap_bootstrap_search_form_wrapper(&$variables) {
+function bootswatch_bootstrap_search_form_wrapper(&$variables) {
 //  $output = '<div class="form-group">';
     $output = '<div class="input-group">';
     $output .= $variables['element']['#children'];
@@ -328,7 +328,7 @@ function bootstrap_bootstrap_search_form_wrapper(&$variables) {
 
 
 /*********Bootstrap 3.0.x Added By Margots from Kapasoft.com/margotskapacs.com*************/
-function bootstrap_textfield($variables) {
+function bootswatch_textfield($variables) {
     $element = $variables['element'];
     $element['#attributes']['type'] = 'text';
     element_set_attributes($element, array('id', 'name', 'value', 'size', 'maxlength'));
@@ -354,7 +354,7 @@ function bootstrap_textfield($variables) {
 }
 
 
-function bootstrap_password($variables) {
+function bootswatch_password($variables) {
     $element = $variables['element'];
     $element['#attributes']['type'] = 'password';
     element_set_attributes($element, array('id', 'name', 'size', 'maxlength'));
@@ -363,7 +363,7 @@ function bootstrap_password($variables) {
     return '<input' . drupal_attributes($element['#attributes']) . ' />';
 }
 
-function bootstrap_container($variables) {
+function bootswatch_container($variables) {
     $element = $variables['element'];
 
     // Special handling for form elements.

@@ -1,8 +1,6 @@
-name = dave_subtheme
-description = description of Dave Subtheme.
+name = bootswatch
+description = Bootstrap-3.0.x with Bootswatch mechanism to easy switch different bootswatch themes
 core = 7.x
-base theme = bootstrap
-
 regions[navigation]     = 'Navigation'
 regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'
@@ -13,18 +11,18 @@ regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
 
 settings[toggle_name] = 0
-settings[toggle_search] = 0
+settings[toggle_search] = 1
 settings[cdn_bootstrap] = 0
 settings[cdn_bootstrap_version] = 2.3.2
 
-;Stylesheets
-;stylesheets[all][] = css/bootstrap.min-2.3.2.css
-;stylesheets[all][] = css/bootstrap-theme.min.css
-;stylesheets[all][] = css/bootswatch/default/bootstrap.min.css
-;stylesheets[all][] = css/bootswatch/amelia/bootstrap.min.css
-;stylesheets[all][] = css/bootswatch/cerulean/bootstrap.min.css
-;stylesheets[all][] = css/bootswatch/cosmo/bootstrap.min.css
-;stylesheets[all][] = css/overrides.css
+
+;javascript exclude
+;exclude[js][] = 'modules/contextual/contextual.js'
+
+;JavaScript include
+scripts[] = 'js/bootstrap.min.js'
+
+;css
 stylesheets[all][] = css/style.css
 
 ;exclude[css][] = 'misc/vertical-tabs.css'
@@ -58,11 +56,4 @@ exclude[css][] = 'modules/tracker/tracker.css'
 exclude[css][] = 'modules/update/update.css'
 exclude[css][] = 'modules/user/user.css'
 
-;JavaScript
-scripts[] = 'js/bootstrap.min.js'
-;exclude[css][] = 'misc/vertical-tabs.css'
 
-
-;Theme Settings
-;settings[cdn_bootstrap] = 1
-settings[bootswatch_theme] = 'default'

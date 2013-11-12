@@ -3,7 +3,7 @@
 /**
  * Implements hook_form_alter().
  */
-function bootstrap_form_alter(&$form, &$form_state, $form_id) {
+function bootswatch_form_alter(&$form, &$form_state, $form_id) {
   // Id's of forms that should be ignored
   // Make this configurable?
   $form_ids = array(
@@ -22,7 +22,7 @@ function bootstrap_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Implements hook_form_FORM_ID_alter() for search_form().
  */
-function bootstrap_form_search_form_alter(&$form, &$form_state) {
+function bootswatch_form_search_form_alter(&$form, &$form_state) {
 //  $form['#attributes']['class'][] = 'form-search';
 //  $form['#attributes']['class'][] = 'pull-left';
     $form['#attributes']['class'][] = 'navbar-form';
@@ -48,7 +48,7 @@ function bootstrap_form_search_form_alter(&$form, &$form_state) {
 /**
  * Implements hook_form_FORM_ID_alter() for search_block_form().
  */
-function bootstrap_form_search_block_form_alter(&$form, &$form_state) {
+function bootswatch_form_search_block_form_alter(&$form, &$form_state) {
 //  $form['#attributes']['class'][] = 'form-search';
 //    $form['#attributes']['class'][] = 'form-control';
 
@@ -77,7 +77,7 @@ function bootstrap_form_search_block_form_alter(&$form, &$form_state) {
 /**
  * Returns HTML for a form element.
  */
-function bootstrap_form_element(&$variables) {
+function bootswatch_form_element(&$variables) {
   $element = &$variables['element'];
   // This is also used in the installer, pre-database setup.
   $t = get_t();
@@ -177,7 +177,7 @@ function bootstrap_form_element(&$variables) {
 /**
  * Returns HTML for a form element label and required marker.
  */
-function bootstrap_form_element_label(&$variables) {
+function bootswatch_form_element_label(&$variables) {
   $element = $variables['element'];
   // This is also used in the installer, pre-database setup.
   $t = get_t();
@@ -227,7 +227,7 @@ function bootstrap_form_element_label(&$variables) {
 /**
  * Preprocessor for theme('button').
  */
-function bootstrap_preprocess_button(&$vars) {
+function bootswatch_preprocess_button(&$vars) {
   $vars['element']['#attributes']['class'][] = 'btn';
   $vars['element']['#attributes']['class'][] = 'btn-default';
 
@@ -269,7 +269,7 @@ function bootstrap_preprocess_button(&$vars) {
 /**
  * Returns HTML for a button form element.
  */
-function bootstrap_button($variables) {
+function bootswatch_button($variables) {
   $element = $variables['element'];
   $label = $element['#value'];
   element_set_attributes($element, array('id', 'name', 'value', 'type'));
@@ -310,7 +310,7 @@ function _bootstrap_element_whitelist() {
   );
 }
 
-function bootstrap_bootstrap_append_element(&$variables) {
+function bootswatch_bootstrap_append_element(&$variables) {
   $element = &$variables['element'];
 
   // This is also used in the installer, pre-database setup.

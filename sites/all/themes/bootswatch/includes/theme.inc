@@ -163,7 +163,7 @@ function theme_bootstrap_btn_dropdown($variables) {
 /*
  * Overwrites the default item list to make it prettier
  */
-function bootstrap_item_list($variables) {
+function bootswatch_item_list($variables) {
   $items = $variables['items'];
   $title = $variables['title'];
   $type = $variables['type'];
@@ -220,7 +220,7 @@ function bootstrap_item_list($variables) {
 /**
  * Returns HTML for status and/or error messages, grouped by type.
  */
-function bootstrap_status_messages($variables) {
+function bootswatch_status_messages($variables) {
   $display = $variables['display'];
   $output = '';
 
@@ -271,11 +271,11 @@ function bootstrap_status_messages($variables) {
 /**
  * Implements hook_css_alter().
  */
-function bootstrap_css_alter(&$css) {
+function bootswatch_css_alter(&$css) {
   $theme_path = drupal_get_path('theme', 'bootstrap');
   // Load excluded CSS files from theme.
-  $excludes = _bootstrap_alter(bootstrap_theme_get_info('exclude'), 'css');
-  // Add Bootstrap CDN file and overrides.
+  $excludes = _bootstrap_alter(bootswatch_theme_get_info('exclude'), 'css');
+  // Add bootswatch CDN file and overrides.
   if (theme_get_setting('cdn_bootstrap')){
     // Add CDN.
     $cdn = '//netdna.bootstrapcdn.com/twitter-bootstrap/'. theme_get_setting('cdn_bootstrap_version')  .'/css/bootstrap-combined.min.css';
@@ -343,11 +343,11 @@ function bootstrap_css_alter(&$css) {
 /**
  * Implements hook_js_alter().
  */
-function bootstrap_js_alter(&$js) {
+function bootswatch_js_alter(&$js) {
   // Load excluded JS files from theme.
-  $excludes = _bootstrap_alter(bootstrap_theme_get_info('exclude'), 'js');
+  $excludes = _bootstrap_alter(bootswatch_theme_get_info('exclude'), 'js');
 
-  // If bootstrap_ui available, we should not add js from theme info file.
+  // If bootswatch_ui available, we should not add js from theme info file.
   if (module_exists('bootstrap_ui')) {
     libraries_load('bootstrap', 'minified');
   }

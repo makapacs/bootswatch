@@ -1,6 +1,8 @@
-name = Bootstrap
-description = Built to use Bootstrap, a sleek, intuitive, and powerful front-end framework for faster and easier web development.
+name = dave_subtheme
+description = description of Dave Subtheme.
 core = 7.x
+base theme = bootswatch
+
 regions[navigation]     = 'Navigation'
 regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'
@@ -11,15 +13,20 @@ regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
 
 settings[toggle_name] = 0
-settings[toggle_search] = 1
-settings[cdn_bootstrap] = 1
+settings[toggle_search] = 0
+settings[cdn_bootstrap] = 0
 settings[cdn_bootstrap_version] = 2.3.2
 
-;Exclude
-;javascript
-;exclude[js][] = 'modules/contextual/contextual.js'
+;Stylesheets
+;stylesheets[all][] = css/bootstrap.min-2.3.2.css
+;stylesheets[all][] = css/bootstrap-theme.min.css
+;stylesheets[all][] = css/bootswatch/default/bootstrap.min.css
+;stylesheets[all][] = css/bootswatch/amelia/bootstrap.min.css
+;stylesheets[all][] = css/bootswatch/cerulean/bootstrap.min.css
+;stylesheets[all][] = css/bootswatch/cosmo/bootstrap.min.css
+;stylesheets[all][] = css/overrides.css
+stylesheets[all][] = css/style.css
 
-;css
 ;exclude[css][] = 'misc/vertical-tabs.css'
 exclude[css][] = 'modules/aggregator/aggregator.css'
 exclude[css][] = 'modules/block/block.css'
@@ -51,9 +58,11 @@ exclude[css][] = 'modules/tracker/tracker.css'
 exclude[css][] = 'modules/update/update.css'
 exclude[css][] = 'modules/user/user.css'
 
-; Information added by drupal.org packaging script on 2013-09-21
-version = "7.x-2.2"
-core = "7.x"
-project = "bootstrap"
-datestamp = "1379796670"
+;JavaScript
+scripts[] = 'js/bootstrap.min.js'
+;exclude[css][] = 'misc/vertical-tabs.css'
 
+
+;Theme Settings
+;settings[cdn_bootstrap] = 1
+settings[bootswatch_theme] = 'default'

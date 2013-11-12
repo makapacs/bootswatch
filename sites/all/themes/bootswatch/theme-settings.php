@@ -2,7 +2,7 @@
 
 include_once(dirname(__FILE__) . '/includes/bootstrap.inc');
 
-function bootstrap_form_system_theme_settings_alter(&$form, $form_state, $form_id = NULL) {
+function bootswatch_form_system_theme_settings_alter(&$form, $form_state, $form_id = NULL) {
   // Work-around for a core bug affecting admin themes. See issue #943212.
   if (isset($form_id)) {
     return;
@@ -73,23 +73,6 @@ function bootstrap_form_system_theme_settings_alter(&$form, $form_state, $form_i
     );
 
 }
-//function dave_subtheme_form_system_theme_settings_alter(&$form, &$form_state){
-//
-//
-//    $form['bootswatch'] = array(
-//        '#title' => 'Bootswatch Configurations - Kapasoft.com',
-//        '#type' => 'fieldset',
-//        '#collapsible' => FALSE,
-//        '#collapsed' => FALSE,
-//    );
-//
-//    $form['bootswatch']['bootswatch_theme'] = array(
-//        '#title' => t('Bootswatch Themes'),
-//        '#type' => 'select',
-//        '#default_value' => theme_get_setting('bootswatch_theme'),
-//        '#options' => _theme_schemas(),
-//    );
-//}
 
 function _theme_schemas(){
     $themes = array();

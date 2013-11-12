@@ -18,7 +18,7 @@
  *
  * @ingroup themeable
  */
-function bootstrap_pager($variables) {
+function bootswatch_pager($variables) {
   $output = "";
   $tags = $variables['tags'];
   $element = $variables['element'];
